@@ -50,7 +50,7 @@ import com.griffnode.sdk.JSON;
 /**
  * AccountUsage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-07T18:22:47.622078015Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T10:52:29.110714780Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class AccountUsage {
   public static final String SERIALIZED_NAME_MONTHLY_TRANSACTIONS_USED = "monthly_transactions_used";
   @SerializedName(SERIALIZED_NAME_MONTHLY_TRANSACTIONS_USED)

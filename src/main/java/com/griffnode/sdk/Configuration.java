@@ -13,7 +13,7 @@
 
 package com.griffnode.sdk;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-07T18:22:47.622078015Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T10:52:29.110714780Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class Configuration {
     public static final String VERSION = "0.1.0";
 

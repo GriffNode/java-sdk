@@ -526,7 +526,7 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
       description: "Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED,\
-        \ MIDAS_ERROR, …)."
+        \ UPSTREAM_ERROR, …)."
   schemas:
     CryptoSymbol:
       description: Supported coin/token symbol. /cryptos/list is authoritative at

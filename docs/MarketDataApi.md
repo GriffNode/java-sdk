@@ -70,7 +70,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Live rates. |  -  |
 | **401** | Missing or invalid API key (UNAUTHORIZED). |  -  |
-| **500** | Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, MIDAS_ERROR, …). |  -  |
+| **500** | Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, UPSTREAM_ERROR, …). |  -  |
 
 <a id="listCryptocurrencies"></a>
 # **listCryptocurrencies**

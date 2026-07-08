@@ -85,7 +85,7 @@ public class MarketDataApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Live rates. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, MIDAS_ERROR, …). </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, UPSTREAM_ERROR, …). </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPricesCall(final ApiCallback _callback) throws ApiException {
@@ -149,7 +149,7 @@ public class MarketDataApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Live rates. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, MIDAS_ERROR, …). </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, UPSTREAM_ERROR, …). </td><td>  -  </td></tr>
      </table>
      */
     public GetPrices200Response getPrices() throws ApiException {
@@ -168,7 +168,7 @@ public class MarketDataApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Live rates. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, MIDAS_ERROR, …). </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, UPSTREAM_ERROR, …). </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GetPrices200Response> getPricesWithHttpInfo() throws ApiException {
@@ -189,7 +189,7 @@ public class MarketDataApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Live rates. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, MIDAS_ERROR, …). </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal error (RATE_FETCH_FAILED, ADDRESS_GENERATION_FAILED, UPSTREAM_ERROR, …). </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPricesAsync(final ApiCallback<GetPrices200Response> _callback) throws ApiException {
