@@ -501,6 +501,15 @@ components:
       description: Public transaction status (internal sub-states are mapped to these).
       enum: [pending, awaiting_confirmation, completed, partial, expired, failed]
 
+    TransactionException:
+      type: string
+      description: >
+        Present only when the payment waits for the merchant's decision. paid_late: coins
+        arrived within 6h after the window closed (status stays expired; complete it with
+        Mark as paid in the dashboard, which also sends payment.completed). needs_review:
+        ETH/ERC-20 deposit address balance dropped while open, payment unknown (status pending).
+      enum: [paid_late, needs_review]
+
     PlanTier:
       type: string
       enum: [starter, business, professional, enterprise]
@@ -567,6 +576,7 @@ components:
       properties:
         transaction_id: { type: string, examples: ["MTX-A1B2C3D4"] }
         status: { $ref: "#/components/schemas/TransactionStatus" }
+        exception: { $ref: "#/components/schemas/TransactionException" }
         type: { type: string, enum: [basic, detailed] }
         crypto: { $ref: "#/components/schemas/CryptoSymbol" }
         deposit_address: { type: string }
@@ -696,9 +706,12 @@ components:
             - payment.partial
             - payment.expired
             - payment.failed
+            - payment.paid_late
+            - payment.needs_review
         timestamp: { type: string, format: date-time }
         transaction_id: { type: string }
         status: { $ref: "#/components/schemas/TransactionStatus" }
+        exception: { $ref: "#/components/schemas/TransactionException" }
         currency_crypto: { $ref: "#/components/schemas/CryptoSymbol" }
         currency_fiat: { $ref: "#/components/schemas/FiatCurrency" }
         amount_fiat: { type: string, description: "Decimal string." }
