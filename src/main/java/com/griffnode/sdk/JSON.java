@@ -126,6 +126,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.Pagination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.PaymentSplit.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.Plan.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.RecurringWebhookPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.Transaction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.TransactionEnvelope.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.griffnode.sdk.model.WebhookPayload.CustomTypeAdapterFactory());

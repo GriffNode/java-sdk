@@ -74,7 +74,24 @@ paths:
         schema:
           $ref: '#/components/schemas/CryptoSymbol'
         style: form
-      - description: Payment-link slug for attribution.
+      - description: "Fiat currency of `amount`. Ignored when `link` is set: a payment\
+          \ link always uses its own amount and currency."
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          enum:
+          - USD
+          - PLN
+          - EUR
+          - GBP
+          type: string
+        style: form
+      - description: "Payment-link slug. The link's own amount, currency, expiry and\
+          \ single-use rules apply (410 if expired, 409 if a single-use link was already\
+          \ paid)."
         explode: true
         in: query
         name: link
@@ -566,6 +583,13 @@ components:
       - expired
       - failed
       type: string
+    TransactionException:
+      description: |
+        Present only when the payment waits for the merchant's decision. paid_late: coins arrived within 6h after the window closed (status stays expired; complete it with Mark as paid in the dashboard, which also sends payment.completed). needs_review: ETH/ERC-20 deposit address balance dropped while open, payment unknown (status pending).
+      enum:
+      - paid_late
+      - needs_review
+      type: string
     PlanTier:
       enum:
       - starter
@@ -714,6 +738,7 @@ components:
       description: |
         The canonical, curated public view of a transaction (same shape from create, get and list). Internal fields (capability tokens, client_ip, address_index, derivation/db internals) are deliberately NOT exposed.
       example:
+        exception: paid_late
         amount_paid: 5.962133916683182
         amount_remaining: 5.637376656633329
         payment_url: https://openapi-generator.tech
@@ -763,6 +788,8 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/TransactionStatus'
+        exception:
+          $ref: '#/components/schemas/TransactionException'
         type:
           enum:
           - basic
@@ -842,6 +869,7 @@ components:
     TransactionEnvelope:
       example:
         data:
+          exception: paid_late
           amount_paid: 5.962133916683182
           amount_remaining: 5.637376656633329
           payment_url: https://openapi-generator.tech
@@ -1048,13 +1076,14 @@ components:
         Payment-event payload. AMOUNTS ARE STRINGS (e.g. "100.00", "0.00109462") to preserve decimal precision — parse before arithmetic.
       example:
         transaction_id: transaction_id
-        amount_fiat: amount_fiat
+        exception: paid_late
         metadata:
           key: metadata
+        amount_usd: amount_usd
+        amount_fiat: amount_fiat
         currency_fiat: USD
         receipt_url: https://openapi-generator.tech
         currency_crypto: BTC
-        amount_usd: amount_usd
         amount_crypto: amount_crypto
         event: payment.created
         order_id: order_id
@@ -1070,6 +1099,8 @@ components:
           - payment.partial
           - payment.expired
           - payment.failed
+          - payment.paid_late
+          - payment.needs_review
           type: string
         timestamp:
           format: date-time
@@ -1078,6 +1109,8 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/TransactionStatus'
+        exception:
+          $ref: '#/components/schemas/TransactionException'
         currency_crypto:
           $ref: '#/components/schemas/CryptoSymbol'
         currency_fiat:
@@ -1109,6 +1142,79 @@ components:
       - status
       - timestamp
       - transaction_id
+    RecurringWebhookPayload:
+      description: |
+        Recurring payment request event. schedule_id + your own reference identify the customer/order. The period's payment also fires the normal payment.* events.
+      properties:
+        id:
+          type: string
+        event:
+          enum:
+          - recurring.confirmed
+          - recurring.payment.completed
+          - recurring.payment.unpaid
+          - recurring.stopped
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        schedule_id:
+          format: uuid
+          type: string
+        reference:
+          description: "Your own customer/order id, as entered on the schedule."
+          type: string
+        customer_email:
+          format: email
+          type: string
+        description:
+          type: string
+        amount_fiat:
+          description: Decimal string.
+          type: string
+        currency_fiat:
+          enum:
+          - USD
+          - PLN
+          - EUR
+          - GBP
+          type: string
+        interval:
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - yearly
+          type: string
+        status:
+          enum:
+          - pending_confirmation
+          - active
+          - paused
+          - cancelled
+          - stopped_by_customer
+          - bounced
+          - expired_unconfirmed
+          type: string
+        period_no:
+          description: recurring.payment.* only.
+          type: integer
+        transaction_id:
+          description: recurring.payment.completed only.
+          type: string
+        reason:
+          description: recurring.stopped only.
+          enum:
+          - stopped_by_customer
+          - bounced
+          - unconfirmed
+          type: string
+      required:
+      - event
+      - id
+      - schedule_id
+      - status
+      - timestamp
     Error:
       example:
         success: ""
@@ -1145,7 +1251,8 @@ components:
           offset: 6
           limit: 0
         transactions:
-        - amount_paid: 5.962133916683182
+        - exception: paid_late
+          amount_paid: 5.962133916683182
           amount_remaining: 5.637376656633329
           payment_url: https://openapi-generator.tech
           metadata:
@@ -1189,7 +1296,8 @@ components:
             name: name
           cancel_url: cancel_url
           status: pending
-        - amount_paid: 5.962133916683182
+        - exception: paid_late
+          amount_paid: 5.962133916683182
           amount_remaining: 5.637376656633329
           payment_url: https://openapi-generator.tech
           metadata:
@@ -1251,7 +1359,8 @@ components:
             offset: 6
             limit: 0
           transactions:
-          - amount_paid: 5.962133916683182
+          - exception: paid_late
+            amount_paid: 5.962133916683182
             amount_remaining: 5.637376656633329
             payment_url: https://openapi-generator.tech
             metadata:
@@ -1295,7 +1404,8 @@ components:
               name: name
             cancel_url: cancel_url
             status: pending
-          - amount_paid: 5.962133916683182
+          - exception: paid_late
+            amount_paid: 5.962133916683182
             amount_remaining: 5.637376656633329
             payment_url: https://openapi-generator.tech
             metadata:

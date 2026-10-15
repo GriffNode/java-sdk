@@ -42,9 +42,11 @@ docs/Pagination.md
 docs/PaymentSplit.md
 docs/Plan.md
 docs/PlanTier.md
+docs/RecurringWebhookPayload.md
 docs/SystemApi.md
 docs/Transaction.md
 docs/TransactionEnvelope.md
+docs/TransactionException.md
 docs/TransactionStatus.md
 docs/TransactionsApi.md
 docs/WebhookPayload.md
@@ -117,7 +119,11 @@ src/main/java/com/griffnode/sdk/model/Pagination.java
 src/main/java/com/griffnode/sdk/model/PaymentSplit.java
 src/main/java/com/griffnode/sdk/model/Plan.java
 src/main/java/com/griffnode/sdk/model/PlanTier.java
+src/main/java/com/griffnode/sdk/model/RecurringWebhookPayload.java
 src/main/java/com/griffnode/sdk/model/Transaction.java
 src/main/java/com/griffnode/sdk/model/TransactionEnvelope.java
+src/main/java/com/griffnode/sdk/model/TransactionException.java
 src/main/java/com/griffnode/sdk/model/TransactionStatus.java
 src/main/java/com/griffnode/sdk/model/WebhookPayload.java
+src/test/java/com/griffnode/sdk/model/RecurringWebhookPayloadTest.java
+src/test/java/com/griffnode/sdk/model/TransactionExceptionTest.java

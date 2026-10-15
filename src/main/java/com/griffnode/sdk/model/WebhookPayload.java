@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.griffnode.sdk.model.CryptoSymbol;
 import com.griffnode.sdk.model.FiatCurrency;
+import com.griffnode.sdk.model.TransactionException;
 import com.griffnode.sdk.model.TransactionStatus;
 import java.io.IOException;
 import java.net.URI;
@@ -56,7 +57,7 @@ import com.griffnode.sdk.JSON;
 /**
  * Payment-event payload. AMOUNTS ARE STRINGS (e.g. \&quot;100.00\&quot;, \&quot;0.00109462\&quot;) to preserve decimal precision — parse before arithmetic. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T10:52:29.110714780Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T13:54:16.140359789Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class WebhookPayload {
   /**
    * Gets or Sets event
@@ -75,7 +76,11 @@ public class WebhookPayload {
     
     EXPIRED("payment.expired"),
     
-    FAILED("payment.failed");
+    FAILED("payment.failed"),
+    
+    PAID_LATE("payment.paid_late"),
+    
+    NEEDS_REVIEW("payment.needs_review");
 
     private String value;
 
@@ -139,6 +144,11 @@ public class WebhookPayload {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
   private TransactionStatus status;
+
+  public static final String SERIALIZED_NAME_EXCEPTION = "exception";
+  @SerializedName(SERIALIZED_NAME_EXCEPTION)
+  @javax.annotation.Nullable
+  private TransactionException exception;
 
   public static final String SERIALIZED_NAME_CURRENCY_CRYPTO = "currency_crypto";
   @SerializedName(SERIALIZED_NAME_CURRENCY_CRYPTO)
@@ -256,6 +266,25 @@ public class WebhookPayload {
 
   public void setStatus(@javax.annotation.Nonnull TransactionStatus status) {
     this.status = status;
+  }
+
+
+  public WebhookPayload exception(@javax.annotation.Nullable TransactionException exception) {
+    this.exception = exception;
+    return this;
+  }
+
+  /**
+   * Get exception
+   * @return exception
+   */
+  @javax.annotation.Nullable
+  public TransactionException getException() {
+    return exception;
+  }
+
+  public void setException(@javax.annotation.Nullable TransactionException exception) {
+    this.exception = exception;
   }
 
 
@@ -433,6 +462,7 @@ public class WebhookPayload {
         Objects.equals(this.timestamp, webhookPayload.timestamp) &&
         Objects.equals(this.transactionId, webhookPayload.transactionId) &&
         Objects.equals(this.status, webhookPayload.status) &&
+        Objects.equals(this.exception, webhookPayload.exception) &&
         Objects.equals(this.currencyCrypto, webhookPayload.currencyCrypto) &&
         Objects.equals(this.currencyFiat, webhookPayload.currencyFiat) &&
         Objects.equals(this.amountFiat, webhookPayload.amountFiat) &&
@@ -449,7 +479,7 @@ public class WebhookPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(event, timestamp, transactionId, status, currencyCrypto, currencyFiat, amountFiat, amountUsd, amountCrypto, orderId, receiptUrl, metadata);
+    return Objects.hash(event, timestamp, transactionId, status, exception, currencyCrypto, currencyFiat, amountFiat, amountUsd, amountCrypto, orderId, receiptUrl, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -467,6 +497,7 @@ public class WebhookPayload {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    exception: ").append(toIndentedString(exception)).append("\n");
     sb.append("    currencyCrypto: ").append(toIndentedString(currencyCrypto)).append("\n");
     sb.append("    currencyFiat: ").append(toIndentedString(currencyFiat)).append("\n");
     sb.append("    amountFiat: ").append(toIndentedString(amountFiat)).append("\n");
@@ -501,6 +532,7 @@ public class WebhookPayload {
     openapiFields.add("timestamp");
     openapiFields.add("transaction_id");
     openapiFields.add("status");
+    openapiFields.add("exception");
     openapiFields.add("currency_crypto");
     openapiFields.add("currency_fiat");
     openapiFields.add("amount_fiat");
@@ -556,6 +588,10 @@ public class WebhookPayload {
       }
       // validate the required field `status`
       TransactionStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `exception`
+      if (jsonObj.get("exception") != null && !jsonObj.get("exception").isJsonNull()) {
+        TransactionException.validateJsonElement(jsonObj.get("exception"));
+      }
       // validate the optional field `currency_crypto`
       if (jsonObj.get("currency_crypto") != null && !jsonObj.get("currency_crypto").isJsonNull()) {
         CryptoSymbol.validateJsonElement(jsonObj.get("currency_crypto"));

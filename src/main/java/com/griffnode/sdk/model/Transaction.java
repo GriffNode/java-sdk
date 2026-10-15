@@ -23,6 +23,7 @@ import com.griffnode.sdk.model.CryptoSymbol;
 import com.griffnode.sdk.model.FiatCurrency;
 import com.griffnode.sdk.model.LineItem;
 import com.griffnode.sdk.model.PaymentSplit;
+import com.griffnode.sdk.model.TransactionException;
 import com.griffnode.sdk.model.TransactionStatus;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -61,7 +62,7 @@ import com.griffnode.sdk.JSON;
 /**
  * The canonical, curated public view of a transaction (same shape from create, get and list). Internal fields (capability tokens, client_ip, address_index, derivation/db internals) are deliberately NOT exposed. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T10:52:29.110714780Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T13:54:16.140359789Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class Transaction {
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
@@ -72,6 +73,11 @@ public class Transaction {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
   private TransactionStatus status;
+
+  public static final String SERIALIZED_NAME_EXCEPTION = "exception";
+  @SerializedName(SERIALIZED_NAME_EXCEPTION)
+  @javax.annotation.Nullable
+  private TransactionException exception;
 
   /**
    * Gets or Sets type
@@ -278,6 +284,25 @@ public class Transaction {
 
   public void setStatus(@javax.annotation.Nonnull TransactionStatus status) {
     this.status = status;
+  }
+
+
+  public Transaction exception(@javax.annotation.Nullable TransactionException exception) {
+    this.exception = exception;
+    return this;
+  }
+
+  /**
+   * Get exception
+   * @return exception
+   */
+  @javax.annotation.Nullable
+  public TransactionException getException() {
+    return exception;
+  }
+
+  public void setException(@javax.annotation.Nullable TransactionException exception) {
+    this.exception = exception;
   }
 
 
@@ -754,6 +779,7 @@ public class Transaction {
     Transaction transaction = (Transaction) o;
     return Objects.equals(this.transactionId, transaction.transactionId) &&
         Objects.equals(this.status, transaction.status) &&
+        Objects.equals(this.exception, transaction.exception) &&
         Objects.equals(this.type, transaction.type) &&
         Objects.equals(this.crypto, transaction.crypto) &&
         Objects.equals(this.depositAddress, transaction.depositAddress) &&
@@ -785,7 +811,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, status, type, crypto, depositAddress, amountCrypto, amountFiat, amountUsd, amountPaid, amountRemaining, currencyFiat, fiatToUsdRate, exchangeRate, confirmationsRequired, paymentUrl, orderId, customerEmail, items, payments, metadata, successUrl, cancelUrl, createdAt, updatedAt, expiresAt);
+    return Objects.hash(transactionId, status, exception, type, crypto, depositAddress, amountCrypto, amountFiat, amountUsd, amountPaid, amountRemaining, currencyFiat, fiatToUsdRate, exchangeRate, confirmationsRequired, paymentUrl, orderId, customerEmail, items, payments, metadata, successUrl, cancelUrl, createdAt, updatedAt, expiresAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -801,6 +827,7 @@ public class Transaction {
     sb.append("class Transaction {\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    exception: ").append(toIndentedString(exception)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    crypto: ").append(toIndentedString(crypto)).append("\n");
     sb.append("    depositAddress: ").append(toIndentedString(depositAddress)).append("\n");
@@ -848,6 +875,7 @@ public class Transaction {
     openapiFields = new HashSet<String>();
     openapiFields.add("transaction_id");
     openapiFields.add("status");
+    openapiFields.add("exception");
     openapiFields.add("type");
     openapiFields.add("crypto");
     openapiFields.add("deposit_address");
@@ -917,6 +945,10 @@ public class Transaction {
       }
       // validate the required field `status`
       TransactionStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `exception`
+      if (jsonObj.get("exception") != null && !jsonObj.get("exception").isJsonNull()) {
+        TransactionException.validateJsonElement(jsonObj.get("exception"));
+      }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }

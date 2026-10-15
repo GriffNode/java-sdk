@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.griffnode",
     name := "griffnode-java-sdk",
-    version := "0.1.0",
+    version := "1.1.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

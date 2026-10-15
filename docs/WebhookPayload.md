@@ -12,6 +12,7 @@ Payment-event payload. AMOUNTS ARE STRINGS (e.g. \"100.00\", \"0.00109462\") to 
 |**timestamp** | **OffsetDateTime** |  |  |
 |**transactionId** | **String** |  |  |
 |**status** | **TransactionStatus** |  |  |
+|**exception** | **TransactionException** |  |  [optional] |
 |**currencyCrypto** | **CryptoSymbol** |  |  [optional] |
 |**currencyFiat** | **FiatCurrency** |  |  [optional] |
 |**amountFiat** | **String** | Decimal string. |  [optional] |
@@ -34,6 +35,8 @@ Payment-event payload. AMOUNTS ARE STRINGS (e.g. \"100.00\", \"0.00109462\") to 
 | PARTIAL | &quot;payment.partial&quot; |
 | EXPIRED | &quot;payment.expired&quot; |
 | FAILED | &quot;payment.failed&quot; |
+| PAID_LATE | &quot;payment.paid_late&quot; |
+| NEEDS_REVIEW | &quot;payment.needs_review&quot; |
 
 
 
