@@ -196,7 +196,8 @@ public class SystemApi {
      * @param pk Publishable key, pk_live_… / pk_test_… (required)
      * @param amount Fiat amount (≥ 1.00 USD equivalent). (required)
      * @param crypto  (required)
-     * @param link Payment-link slug for attribution. (optional)
+     * @param currency Fiat currency of &#x60;amount&#x60;. Ignored when &#x60;link&#x60; is set: a payment link always uses its own amount and currency. (optional, default to USD)
+     * @param link Payment-link slug. The link&#39;s own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -208,7 +209,7 @@ public class SystemApi {
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hostedCheckoutRedirectCall(String pk, String amount, CryptoSymbol crypto, String link, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call hostedCheckoutRedirectCall(String pk, String amount, CryptoSymbol crypto, String currency, String link, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -245,6 +246,10 @@ public class SystemApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("crypto", crypto));
         }
 
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
         if (link != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("link", link));
         }
@@ -269,7 +274,7 @@ public class SystemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call hostedCheckoutRedirectValidateBeforeCall(String pk, String amount, CryptoSymbol crypto, String link, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call hostedCheckoutRedirectValidateBeforeCall(String pk, String amount, CryptoSymbol crypto, String currency, String link, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'pk' is set
         if (pk == null) {
             throw new ApiException("Missing the required parameter 'pk' when calling hostedCheckoutRedirect(Async)");
@@ -285,7 +290,7 @@ public class SystemApi {
             throw new ApiException("Missing the required parameter 'crypto' when calling hostedCheckoutRedirect(Async)");
         }
 
-        return hostedCheckoutRedirectCall(pk, amount, crypto, link, _callback);
+        return hostedCheckoutRedirectCall(pk, amount, crypto, currency, link, _callback);
 
     }
 
@@ -295,7 +300,8 @@ public class SystemApi {
      * @param pk Publishable key, pk_live_… / pk_test_… (required)
      * @param amount Fiat amount (≥ 1.00 USD equivalent). (required)
      * @param crypto  (required)
-     * @param link Payment-link slug for attribution. (optional)
+     * @param currency Fiat currency of &#x60;amount&#x60;. Ignored when &#x60;link&#x60; is set: a payment link always uses its own amount and currency. (optional, default to USD)
+     * @param link Payment-link slug. The link&#39;s own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid). (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -305,8 +311,8 @@ public class SystemApi {
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
      </table>
      */
-    public void hostedCheckoutRedirect(String pk, String amount, CryptoSymbol crypto, String link) throws ApiException {
-        hostedCheckoutRedirectWithHttpInfo(pk, amount, crypto, link);
+    public void hostedCheckoutRedirect(String pk, String amount, CryptoSymbol crypto, String currency, String link) throws ApiException {
+        hostedCheckoutRedirectWithHttpInfo(pk, amount, crypto, currency, link);
     }
 
     /**
@@ -315,7 +321,8 @@ public class SystemApi {
      * @param pk Publishable key, pk_live_… / pk_test_… (required)
      * @param amount Fiat amount (≥ 1.00 USD equivalent). (required)
      * @param crypto  (required)
-     * @param link Payment-link slug for attribution. (optional)
+     * @param currency Fiat currency of &#x60;amount&#x60;. Ignored when &#x60;link&#x60; is set: a payment link always uses its own amount and currency. (optional, default to USD)
+     * @param link Payment-link slug. The link&#39;s own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid). (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -326,8 +333,8 @@ public class SystemApi {
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> hostedCheckoutRedirectWithHttpInfo(String pk, String amount, CryptoSymbol crypto, String link) throws ApiException {
-        okhttp3.Call localVarCall = hostedCheckoutRedirectValidateBeforeCall(pk, amount, crypto, link, null);
+    public ApiResponse<Void> hostedCheckoutRedirectWithHttpInfo(String pk, String amount, CryptoSymbol crypto, String currency, String link) throws ApiException {
+        okhttp3.Call localVarCall = hostedCheckoutRedirectValidateBeforeCall(pk, amount, crypto, currency, link, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -337,7 +344,8 @@ public class SystemApi {
      * @param pk Publishable key, pk_live_… / pk_test_… (required)
      * @param amount Fiat amount (≥ 1.00 USD equivalent). (required)
      * @param crypto  (required)
-     * @param link Payment-link slug for attribution. (optional)
+     * @param currency Fiat currency of &#x60;amount&#x60;. Ignored when &#x60;link&#x60; is set: a payment link always uses its own amount and currency. (optional, default to USD)
+     * @param link Payment-link slug. The link&#39;s own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -349,9 +357,9 @@ public class SystemApi {
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hostedCheckoutRedirectAsync(String pk, String amount, CryptoSymbol crypto, String link, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call hostedCheckoutRedirectAsync(String pk, String amount, CryptoSymbol crypto, String currency, String link, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = hostedCheckoutRedirectValidateBeforeCall(pk, amount, crypto, link, _callback);
+        okhttp3.Call localVarCall = hostedCheckoutRedirectValidateBeforeCall(pk, amount, crypto, currency, link, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

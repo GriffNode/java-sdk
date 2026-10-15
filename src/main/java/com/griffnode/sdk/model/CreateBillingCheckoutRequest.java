@@ -49,7 +49,7 @@ import com.griffnode.sdk.JSON;
 /**
  * CreateBillingCheckoutRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T10:52:29.110714780Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T13:54:16.140359789Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class CreateBillingCheckoutRequest {
   public static final String SERIALIZED_NAME_TIER = "tier";
   @SerializedName(SERIALIZED_NAME_TIER)

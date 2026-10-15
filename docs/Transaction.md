@@ -10,6 +10,7 @@ The canonical, curated public view of a transaction (same shape from create, get
 |------------ | ------------- | ------------- | -------------|
 |**transactionId** | **String** |  |  |
 |**status** | **TransactionStatus** |  |  |
+|**exception** | **TransactionException** |  |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
 |**crypto** | **CryptoSymbol** |  |  |
 |**depositAddress** | **String** |  |  [optional] |

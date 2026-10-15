@@ -66,7 +66,7 @@ No authorization required
 
 <a id="hostedCheckoutRedirect"></a>
 # **hostedCheckoutRedirect**
-> hostedCheckoutRedirect(pk, amount, crypto, link)
+> hostedCheckoutRedirect(pk, amount, crypto, currency, link)
 
 Hosted-checkout redirect (browser flow, publishable key)
 
@@ -90,9 +90,10 @@ public class Example {
     String pk = "pk_example"; // String | Publishable key, pk_live_… / pk_test_…
     String amount = "amount_example"; // String | Fiat amount (≥ 1.00 USD equivalent).
     CryptoSymbol crypto = CryptoSymbol.fromValue("BTC"); // CryptoSymbol | 
-    String link = "link_example"; // String | Payment-link slug for attribution.
+    String currency = "USD"; // String | Fiat currency of `amount`. Ignored when `link` is set: a payment link always uses its own amount and currency.
+    String link = "link_example"; // String | Payment-link slug. The link's own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid).
     try {
-      apiInstance.hostedCheckoutRedirect(pk, amount, crypto, link);
+      apiInstance.hostedCheckoutRedirect(pk, amount, crypto, currency, link);
     } catch (ApiException e) {
       System.err.println("Exception when calling SystemApi#hostedCheckoutRedirect");
       System.err.println("Status code: " + e.getCode());
@@ -111,7 +112,8 @@ public class Example {
 | **pk** | **String**| Publishable key, pk_live_… / pk_test_… | |
 | **amount** | **String**| Fiat amount (≥ 1.00 USD equivalent). | |
 | **crypto** | [**CryptoSymbol**](.md)|  | [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR] |
-| **link** | **String**| Payment-link slug for attribution. | [optional] |
+| **currency** | **String**| Fiat currency of &#x60;amount&#x60;. Ignored when &#x60;link&#x60; is set: a payment link always uses its own amount and currency. | [optional] [default to USD] [enum: USD, PLN, EUR, GBP] |
+| **link** | **String**| Payment-link slug. The link&#39;s own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid). | [optional] |
 
 ### Return type
 

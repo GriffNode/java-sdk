@@ -5,19 +5,19 @@
     <artifactId>griffnode-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>griffnode-java-sdk</name>
-    <version>0.1.0</version>
-    <url>https://github.com/openapitools/openapi-generator</url>
-    <description>OpenAPI Java</description>
+    <version>1.1.0</version>
+    <url>https://griffnode.com</url>
+    <description>Official GriffNode SDK. Non-custodial crypto payment gateway: accept BTC, ETH, LTC, DOGE, DASH and ERC-20 tokens straight to your own wallet.</description>
     <scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
+        <connection>scm:git:git@github.com:GriffNode/java-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-generator</url>
+        <url>https://github.com/GriffNode/java-sdk</url>
     </scm>
 
     <licenses>
         <license>
             <name>Unlicense</name>
-            <url>http://unlicense.org</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -26,8 +26,8 @@
         <developer>
             <name>OpenAPI-Generator Contributors</name>
             <email>team@openapitools.org</email>
-            <organization>OpenAPITools.org</organization>
-            <organizationUrl>http://openapitools.org</organizationUrl>
+            <organization>GriffNode</organization>
+            <organizationUrl>https://griffnode.com</organizationUrl>
         </developer>
     </developers>
 
