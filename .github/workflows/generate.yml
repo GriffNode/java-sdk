@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
   push:
     branches: [main]
-    paths: ['openapi.yaml', 'openapitools.json', '.github/workflows/generate.yml']
+    paths: ['openapi.yaml', 'openapi-config.yaml', 'openapitools.json', '.github/workflows/generate.yml']
 permissions:
   contents: write
 jobs:
@@ -17,7 +17,7 @@ jobs:
             openapitools/openapi-generator-cli:v7.10.0 \
             generate -i /local/openapi.yaml -g java -o /local \
             --skip-validate-spec \
-            --additional-properties=groupId=com.griffnode,artifactId=griffnode-java-sdk,artifactVersion=1.0.0,library=okhttp-gson,invokerPackage=com.griffnode.sdk,apiPackage=com.griffnode.sdk.api,modelPackage=com.griffnode.sdk.model,artifactUrl=https://griffnode.com,artifactDescription=Official GriffNode SDK. Non-custodial crypto payment gateway: accept BTC, ETH, LTC, DOGE, DASH and ERC-20 tokens straight to your own wallet.,developerOrganization=GriffNode,developerOrganizationUrl=https://griffnode.com,scmUrl=https://github.com/GriffNode/java-sdk,scmConnection=scm:git:git@github.com:GriffNode/java-sdk.git,licenseUrl=https://www.apache.org/licenses/LICENSE-2.0
+            -c /local/openapi-config.yaml
       - name: Commit regenerated SDK
         run: |
           git config user.name  "github-actions[bot]"

@@ -98,7 +98,8 @@ paths:
         - { name: pk, in: query, required: true, schema: { type: string }, description: "Publishable key, pk_live_… / pk_test_…" }
         - { name: amount, in: query, required: true, schema: { type: string }, description: "Fiat amount (≥ 1.00 USD equivalent)." }
         - { name: crypto, in: query, required: true, schema: { $ref: "#/components/schemas/CryptoSymbol" } }
-        - { name: link, in: query, required: false, schema: { type: string }, description: "Payment-link slug for attribution." }
+        - { name: currency, in: query, required: false, schema: { type: string, enum: [USD, PLN, EUR, GBP], default: USD }, description: "Fiat currency of `amount`. Ignored when `link` is set: a payment link always uses its own amount and currency." }
+        - { name: link, in: query, required: false, schema: { type: string }, description: "Payment-link slug. The link's own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid)." }
       responses:
         "302":
           description: Redirect to https://griffnode.com/transaction/{transaction_id}
@@ -720,6 +721,30 @@ components:
         order_id: { type: [string, "null"] }
         receipt_url: { type: [string, "null"], format: uri, description: "Present on completed/overpaid." }
         metadata: { $ref: "#/components/schemas/Metadata" }
+
+    RecurringWebhookPayload:
+      type: object
+      description: >
+        Recurring payment request event. schedule_id + your own reference identify the
+        customer/order. The period's payment also fires the normal payment.* events.
+      required: [id, event, timestamp, schedule_id, status]
+      properties:
+        id: { type: string }
+        event:
+          type: string
+          enum: [recurring.confirmed, recurring.payment.completed, recurring.payment.unpaid, recurring.stopped]
+        timestamp: { type: string, format: date-time }
+        schedule_id: { type: string, format: uuid }
+        reference: { type: string, description: "Your own customer/order id, as entered on the schedule." }
+        customer_email: { type: string, format: email }
+        description: { type: string }
+        amount_fiat: { type: string, description: "Decimal string." }
+        currency_fiat: { type: string, enum: [USD, PLN, EUR, GBP] }
+        interval: { type: string, enum: [weekly, monthly, quarterly, yearly] }
+        status: { type: string, enum: [pending_confirmation, active, paused, cancelled, stopped_by_customer, bounced, expired_unconfirmed] }
+        period_no: { type: integer, description: "recurring.payment.* only." }
+        transaction_id: { type: string, description: "recurring.payment.completed only." }
+        reason: { type: string, enum: [stopped_by_customer, bounced, unconfirmed], description: "recurring.stopped only." }
 
     Error:
       type: object
