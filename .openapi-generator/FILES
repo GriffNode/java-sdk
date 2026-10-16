@@ -125,5 +125,3 @@ src/main/java/com/griffnode/sdk/model/TransactionEnvelope.java
 src/main/java/com/griffnode/sdk/model/TransactionException.java
 src/main/java/com/griffnode/sdk/model/TransactionStatus.java
 src/main/java/com/griffnode/sdk/model/WebhookPayload.java
-src/test/java/com/griffnode/sdk/model/RecurringWebhookPayloadTest.java
-src/test/java/com/griffnode/sdk/model/TransactionExceptionTest.java

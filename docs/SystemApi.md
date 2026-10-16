@@ -111,7 +111,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **pk** | **String**| Publishable key, pk_live_… / pk_test_… | |
 | **amount** | **String**| Fiat amount (≥ 1.00 USD equivalent). | |
-| **crypto** | [**CryptoSymbol**](.md)|  | [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR] |
+| **crypto** | [**CryptoSymbol**](.md)|  | [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR] |
 | **currency** | **String**| Fiat currency of &#x60;amount&#x60;. Ignored when &#x60;link&#x60; is set: a payment link always uses its own amount and currency. | [optional] [default to USD] [enum: USD, PLN, EUR, GBP] |
 | **link** | **String**| Payment-link slug. The link&#39;s own amount, currency, expiry and single-use rules apply (410 if expired, 409 if a single-use link was already paid). | [optional] |
 

@@ -43,6 +43,8 @@ public enum CryptoSymbol {
   
   USDC("USDC"),
   
+  EURC("EURC"),
+  
   DAI("DAI"),
   
   WBTC("WBTC"),
