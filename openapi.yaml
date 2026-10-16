@@ -490,7 +490,7 @@ components:
     CryptoSymbol:
       type: string
       description: Supported coin/token symbol. /cryptos/list is authoritative at runtime.
-      enum: [BTC, LTC, DOGE, DASH, ETH, USDT, USDC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR]
+      enum: [BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR]
 
     FiatCurrency:
       type: string
