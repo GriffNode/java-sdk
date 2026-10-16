@@ -274,7 +274,7 @@ public class Example {
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **status** | [**TransactionStatus**](.md)|  | [optional] [enum: pending, awaiting_confirmation, completed, partial, expired, failed] |
-| **crypto** | [**CryptoSymbol**](.md)|  | [optional] [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR] |
+| **crypto** | [**CryptoSymbol**](.md)|  | [optional] [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR] |
 
 ### Return type
 

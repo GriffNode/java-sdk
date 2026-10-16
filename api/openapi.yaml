@@ -556,6 +556,7 @@ components:
       - ETH
       - USDT
       - USDC
+      - EURC
       - DAI
       - WBTC
       - SHIB
