@@ -57,7 +57,7 @@ import com.griffnode.sdk.JSON;
 /**
  * Payment-event payload. AMOUNTS ARE STRINGS (e.g. \&quot;100.00\&quot;, \&quot;0.00109462\&quot;) to preserve decimal precision — parse before arithmetic. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T07:36:41.839703732Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-28T06:25:28.638462709Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class WebhookPayload {
   /**
    * Gets or Sets event
