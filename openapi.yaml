@@ -57,9 +57,9 @@ tags:
   - name: Market Data
     description: Live prices and the supported-currency catalogue.
   - name: Account
-    description: Merchant plan, usage, balances, stats and invoices.
+    description: Merchant plan, usage, stats and invoices.
   - name: Billing
-    description: Plan upgrades and account top-ups.
+    description: Plan upgrades.
   - name: System
     description: Health and hosted-checkout redirect.
 
@@ -125,7 +125,6 @@ paths:
               schema: { $ref: "#/components/schemas/TransactionEnvelope" }
         "400": { $ref: "#/components/responses/BadRequest" }
         "401": { $ref: "#/components/responses/Unauthorized" }
-        "402": { $ref: "#/components/responses/InsufficientBalance" }
         "403": { $ref: "#/components/responses/Forbidden" }
         "409": { $ref: "#/components/responses/ActiveTransactionExists" }
         "429": { $ref: "#/components/responses/TooManyRequests" }
@@ -150,7 +149,6 @@ paths:
               schema: { $ref: "#/components/schemas/TransactionEnvelope" }
         "400": { $ref: "#/components/responses/BadRequest" }
         "401": { $ref: "#/components/responses/Unauthorized" }
-        "402": { $ref: "#/components/responses/InsufficientBalance" }
         "403": { $ref: "#/components/responses/Forbidden" }
         "429": { $ref: "#/components/responses/TooManyRequests" }
 
@@ -334,7 +332,8 @@ paths:
     get:
       operationId: listBalances
       tags: [Account]
-      summary: On-platform balances (for overage/top-up; NOT crypto settlement)
+      deprecated: true
+      summary: "Deprecated: always an empty list. GriffNode keeps no on-platform balance (no overage, no top-ups); crypto settles straight to your wallet."
       responses:
         "200":
           description: Balances.
@@ -411,7 +410,7 @@ paths:
     post:
       operationId: createBillingCheckout
       tags: [Billing]
-      summary: Start a plan upgrade or account top-up
+      summary: Start a plan upgrade
       requestBody:
         required: true
         content:
@@ -430,7 +429,6 @@ paths:
             application/json:
               schema: { $ref: "#/components/schemas/TransactionEnvelope" }
         "401": { $ref: "#/components/responses/Unauthorized" }
-        "402": { $ref: "#/components/responses/InsufficientBalance" }
         "403": { $ref: "#/components/responses/Forbidden" }
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -490,7 +488,7 @@ components:
     CryptoSymbol:
       type: string
       description: Supported coin/token symbol. /cryptos/list is authoritative at runtime.
-      enum: [BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR]
+      enum: [BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, WETH, SHIB, PEPE, LINK, UNI, LEO]
 
     FiatCurrency:
       type: string
@@ -638,7 +636,7 @@ components:
           properties:
             monthly_transactions_used: { type: integer }
             monthly_transaction_limit: { type: [integer, "null"], description: "null = unlimited." }
-            overage_cost_per_tx: { type: number }
+            overage_cost_per_tx: { type: number, deprecated: true, description: "Always 0. Plans have a hard monthly limit and no overage." }
         limits:
           type: object
           properties:
@@ -653,7 +651,7 @@ components:
         monthly_price_usd: { type: [number, "null"] }
         yearly_price_usd: { type: [number, "null"] }
         monthly_transaction_limit: { type: [integer, "null"] }
-        overage_cost_per_tx: { type: number }
+        overage_cost_per_tx: { type: number, deprecated: true, description: "Always 0. Plans have a hard monthly limit and no overage." }
         webhook_support: { type: boolean }
         webhook_limit: { type: [integer, "null"] }
         ip_whitelist: { type: boolean }
@@ -673,7 +671,7 @@ components:
       type: object
       properties:
         transaction_id: { type: string, examples: ["STX-..."] }
-        purchase_type: { type: string, examples: ["plan_purchase", "topup"] }
+        purchase_type: { type: string, examples: ["plan_purchase", "plan_renewal"] }
         amount_fiat: { type: number }
         currency_fiat: { $ref: "#/components/schemas/FiatCurrency" }
         status: { type: string }
@@ -786,11 +784,6 @@ components:
           schema: { $ref: "#/components/schemas/Error" }
     NotFound:
       description: Resource not found (TRANSACTION_NOT_FOUND).
-      content:
-        application/json:
-          schema: { $ref: "#/components/schemas/Error" }
-    InsufficientBalance:
-      description: Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE).
       content:
         application/json:
           schema: { $ref: "#/components/schemas/Error" }
