@@ -6,7 +6,7 @@ All URIs are relative to *https://api.griffnode.com/v1*
 |------------- | ------------- | -------------|
 | [**getAccount**](AccountApi.md#getAccount) | **GET** /account | Merchant plan, usage and limits |
 | [**getStats**](AccountApi.md#getStats) | **GET** /stats | Merchant transaction analytics |
-| [**listBalances**](AccountApi.md#listBalances) | **GET** /balances | On-platform balances (for overage/top-up; NOT crypto settlement) |
+| [**listBalances**](AccountApi.md#listBalances) | **GET** /balances | Deprecated: always an empty list. GriffNode keeps no on-platform balance (no overage, no top-ups); crypto settles straight to your wallet. |
 | [**listInvoices**](AccountApi.md#listInvoices) | **GET** /invoices | GriffNode billing invoices (platform ↔ merchant) |
 | [**listPlans**](AccountApi.md#listPlans) | **GET** /plans | Plan catalogue and pricing |
 
@@ -141,7 +141,7 @@ This endpoint does not need any parameter.
 # **listBalances**
 > ListBalances200Response listBalances()
 
-On-platform balances (for overage/top-up; NOT crypto settlement)
+Deprecated: always an empty list. GriffNode keeps no on-platform balance (no overage, no top-ups); crypto settles straight to your wallet.
 
 ### Example
 ```java

@@ -50,7 +50,7 @@ import com.griffnode.sdk.JSON;
 /**
  * InlineObjectAllOfExistingTransaction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-28T06:25:28.638462709Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-30T15:44:48.607550462Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class InlineObjectAllOfExistingTransaction {
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)

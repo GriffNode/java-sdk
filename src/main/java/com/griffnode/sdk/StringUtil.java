@@ -16,7 +16,7 @@ package com.griffnode.sdk;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-28T06:25:28.638462709Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-30T15:44:48.607550462Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

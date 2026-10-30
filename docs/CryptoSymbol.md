@@ -25,6 +25,8 @@
 
 * `WBTC` (value: `"WBTC"`)
 
+* `WETH` (value: `"WETH"`)
+
 * `SHIB` (value: `"SHIB"`)
 
 * `PEPE` (value: `"PEPE"`)
@@ -33,9 +35,7 @@
 
 * `UNI` (value: `"UNI"`)
 
-* `AAVE` (value: `"AAVE"`)
-
-* `MKR` (value: `"MKR"`)
+* `LEO` (value: `"LEO"`)
 
 
 

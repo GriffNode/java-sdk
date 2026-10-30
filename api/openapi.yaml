@@ -22,9 +22,9 @@ tags:
   name: Transactions
 - description: Live prices and the supported-currency catalogue.
   name: Market Data
-- description: "Merchant plan, usage, balances, stats and invoices."
+- description: "Merchant plan, usage, stats and invoices."
   name: Account
-- description: Plan upgrades and account top-ups.
+- description: Plan upgrades.
   name: Billing
 - description: Health and hosted-checkout redirect.
   name: System
@@ -132,8 +132,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         "401":
           $ref: '#/components/responses/Unauthorized'
-        "402":
-          $ref: '#/components/responses/InsufficientBalance'
         "403":
           $ref: '#/components/responses/Forbidden'
         "409":
@@ -168,8 +166,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         "401":
           $ref: '#/components/responses/Unauthorized'
-        "402":
-          $ref: '#/components/responses/InsufficientBalance'
         "403":
           $ref: '#/components/responses/Forbidden'
         "429":
@@ -338,6 +334,7 @@ paths:
       - application/json
   /balances:
     get:
+      deprecated: true
       operationId: listBalances
       responses:
         "200":
@@ -350,7 +347,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         "403":
           $ref: '#/components/responses/Forbidden'
-      summary: On-platform balances (for overage/top-up; NOT crypto settlement)
+      summary: "Deprecated: always an empty list. GriffNode keeps no on-platform balance\
+        \ (no overage, no top-ups); crypto settles straight to your wallet."
       tags:
       - Account
       x-accepts:
@@ -414,11 +412,9 @@ paths:
           description: Billing transaction created.
         "401":
           $ref: '#/components/responses/Unauthorized'
-        "402":
-          $ref: '#/components/responses/InsufficientBalance'
         "403":
           $ref: '#/components/responses/Forbidden'
-      summary: Start a plan upgrade or account top-up
+      summary: Start a plan upgrade
       tags:
       - Billing
       x-content-type: application/json
@@ -508,12 +504,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
       description: Resource not found (TRANSACTION_NOT_FOUND).
-    InsufficientBalance:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-      description: Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE).
     ActiveTransactionExists:
       content:
         application/json:
@@ -559,12 +549,12 @@ components:
       - EURC
       - DAI
       - WBTC
+      - WETH
       - SHIB
       - PEPE
       - LINK
       - UNI
-      - AAVE
-      - MKR
+      - LEO
       type: string
     FiatCurrency:
       default: USD
@@ -992,6 +982,8 @@ components:
           nullable: true
           type: integer
         overage_cost_per_tx:
+          deprecated: true
+          description: Always 0. Plans have a hard monthly limit and no overage.
           type: number
         webhook_support:
           type: boolean
@@ -1810,6 +1802,8 @@ components:
           nullable: true
           type: integer
         overage_cost_per_tx:
+          deprecated: true
+          description: Always 0. Plans have a hard monthly limit and no overage.
           type: number
     Account_limits:
       example:

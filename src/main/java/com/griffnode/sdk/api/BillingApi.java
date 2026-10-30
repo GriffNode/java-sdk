@@ -86,7 +86,6 @@ public class BillingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Billing transaction created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
      */
@@ -147,7 +146,7 @@ public class BillingApi {
     }
 
     /**
-     * Start a plan upgrade or account top-up
+     * Start a plan upgrade
      * 
      * @param createBillingCheckoutRequest  (required)
      * @return TransactionEnvelope
@@ -158,7 +157,6 @@ public class BillingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Billing transaction created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
      */
@@ -168,7 +166,7 @@ public class BillingApi {
     }
 
     /**
-     * Start a plan upgrade or account top-up
+     * Start a plan upgrade
      * 
      * @param createBillingCheckoutRequest  (required)
      * @return ApiResponse&lt;TransactionEnvelope&gt;
@@ -179,7 +177,6 @@ public class BillingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Billing transaction created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
      */
@@ -190,7 +187,7 @@ public class BillingApi {
     }
 
     /**
-     * Start a plan upgrade or account top-up (asynchronously)
+     * Start a plan upgrade (asynchronously)
      * 
      * @param createBillingCheckoutRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -202,7 +199,6 @@ public class BillingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Billing transaction created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
      */

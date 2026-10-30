@@ -49,6 +49,8 @@ public enum CryptoSymbol {
   
   WBTC("WBTC"),
   
+  WETH("WETH"),
+  
   SHIB("SHIB"),
   
   PEPE("PEPE"),
@@ -57,9 +59,7 @@ public enum CryptoSymbol {
   
   UNI("UNI"),
   
-  AAVE("AAVE"),
-  
-  MKR("MKR");
+  LEO("LEO");
 
   private String value;
 

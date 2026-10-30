@@ -340,7 +340,9 @@ public class AccountApi {
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listBalancesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -385,6 +387,7 @@ public class AccountApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listBalancesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         return listBalancesCall(_callback);
@@ -392,7 +395,7 @@ public class AccountApi {
     }
 
     /**
-     * On-platform balances (for overage/top-up; NOT crypto settlement)
+     * Deprecated: always an empty list. GriffNode keeps no on-platform balance (no overage, no top-ups); crypto settles straight to your wallet.
      * 
      * @return ListBalances200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -404,14 +407,16 @@ public class AccountApi {
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ListBalances200Response listBalances() throws ApiException {
         ApiResponse<ListBalances200Response> localVarResp = listBalancesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * On-platform balances (for overage/top-up; NOT crypto settlement)
+     * Deprecated: always an empty list. GriffNode keeps no on-platform balance (no overage, no top-ups); crypto settles straight to your wallet.
      * 
      * @return ApiResponse&lt;ListBalances200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -423,7 +428,9 @@ public class AccountApi {
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<ListBalances200Response> listBalancesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listBalancesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<ListBalances200Response>(){}.getType();
@@ -431,7 +438,7 @@ public class AccountApi {
     }
 
     /**
-     * On-platform balances (for overage/top-up; NOT crypto settlement) (asynchronously)
+     * Deprecated: always an empty list. GriffNode keeps no on-platform balance (no overage, no top-ups); crypto settles straight to your wallet. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -444,7 +451,9 @@ public class AccountApi {
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listBalancesAsync(final ApiCallback<ListBalances200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listBalancesValidateBeforeCall(_callback);

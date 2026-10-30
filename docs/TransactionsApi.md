@@ -78,7 +78,6 @@ public class Example {
 | **201** | Transaction created. |  -  |
 | **400** | Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). |  -  |
 | **401** | Missing or invalid API key (UNAUTHORIZED). |  -  |
-| **402** | Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). |  -  |
 | **403** | Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). |  -  |
 | **429** | Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 
@@ -150,7 +149,6 @@ public class Example {
 | **201** | Transaction created. |  -  |
 | **400** | Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). |  -  |
 | **401** | Missing or invalid API key (UNAUTHORIZED). |  -  |
-| **402** | Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). |  -  |
 | **403** | Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). |  -  |
 | **409** | This client IP already has an active transaction (ACTIVE_TRANSACTION_EXISTS). Body includes an &#x60;existing_transaction&#x60; object. |  -  |
 | **429** | Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  |
@@ -274,7 +272,7 @@ public class Example {
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **status** | [**TransactionStatus**](.md)|  | [optional] [enum: pending, awaiting_confirmation, completed, partial, expired, failed] |
-| **crypto** | [**CryptoSymbol**](.md)|  | [optional] [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, SHIB, PEPE, LINK, UNI, AAVE, MKR] |
+| **crypto** | [**CryptoSymbol**](.md)|  | [optional] [enum: BTC, LTC, DOGE, DASH, ETH, USDT, USDC, EURC, DAI, WBTC, WETH, SHIB, PEPE, LINK, UNI, LEO] |
 
 ### Return type
 

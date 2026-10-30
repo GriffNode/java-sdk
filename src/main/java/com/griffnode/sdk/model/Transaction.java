@@ -62,7 +62,7 @@ import com.griffnode.sdk.JSON;
 /**
  * The canonical, curated public view of a transaction (same shape from create, get and list). Internal fields (capability tokens, client_ip, address_index, derivation/db internals) are deliberately NOT exposed. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-28T06:25:28.638462709Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-30T15:44:48.607550462Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class Transaction {
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)

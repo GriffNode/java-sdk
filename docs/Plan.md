@@ -11,7 +11,7 @@
 |**monthlyPriceUsd** | **BigDecimal** |  |  [optional] |
 |**yearlyPriceUsd** | **BigDecimal** |  |  [optional] |
 |**monthlyTransactionLimit** | **Integer** |  |  [optional] |
-|**overageCostPerTx** | **BigDecimal** |  |  [optional] |
+|**overageCostPerTx** | **BigDecimal** | Always 0. Plans have a hard monthly limit and no overage. |  [optional] |
 |**webhookSupport** | **Boolean** |  |  [optional] |
 |**webhookLimit** | **Integer** |  |  [optional] |
 |**ipWhitelist** | **Boolean** |  |  [optional] |

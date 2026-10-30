@@ -93,7 +93,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
      </table>
@@ -173,7 +172,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
      </table>
@@ -197,7 +195,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
      </table>
@@ -223,7 +220,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
      </table>
@@ -249,7 +245,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> This client IP already has an active transaction (ACTIVE_TRANSACTION_EXISTS). Body includes an &#x60;existing_transaction&#x60; object. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
@@ -330,7 +325,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> This client IP already has an active transaction (ACTIVE_TRANSACTION_EXISTS). Body includes an &#x60;existing_transaction&#x60; object. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
@@ -355,7 +349,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> This client IP already has an active transaction (ACTIVE_TRANSACTION_EXISTS). Body includes an &#x60;existing_transaction&#x60; object. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
@@ -382,7 +375,6 @@ public class TransactionsApi {
         <tr><td> 201 </td><td> Transaction created. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation error (INVALID_REQUEST, INVALID_CRYPTO, INVALID_AMOUNT, AMOUNT_TOO_LOW, INVALID_CURRENCY, INVALID_METADATA, WALLET_NOT_CONFIGURED, MISSING_ITEMS, MISSING_ORDER_ID, …). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Missing or invalid API key (UNAUTHORIZED). </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Merchant platform balance too low for overage fees (INSUFFICIENT_BALANCE). </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Key lacks permission — e.g. a publishable key on a secret-only endpoint, or plan too low (FORBIDDEN, USE_PAY_ENDPOINT, PLAN_UPGRADE_REQUIRED, NO_ACTIVE_PLAN). </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> This client IP already has an active transaction (ACTIVE_TRANSACTION_EXISTS). Body includes an &#x60;existing_transaction&#x60; object. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate limit or quota exceeded. &#x60;error&#x60; is &#x60;RATE_LIMIT_EXCEEDED&#x60; (per-minute request rate — honour &#x60;Retry-After&#x60;) or &#x60;MONTHLY_LIMIT_REACHED&#x60; (the plan&#39;s monthly transaction quota). Rate-limit headers accompany the &#x60;RATE_LIMIT_EXCEEDED&#x60; case.  </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
