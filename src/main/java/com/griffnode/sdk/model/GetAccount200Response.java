@@ -49,7 +49,7 @@ import com.griffnode.sdk.JSON;
 /**
  * GetAccount200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-30T15:44:48.607550462Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:07:24.308887790Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class GetAccount200Response {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
