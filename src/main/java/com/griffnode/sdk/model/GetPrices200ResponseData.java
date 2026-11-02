@@ -52,7 +52,7 @@ import com.griffnode.sdk.JSON;
 /**
  * GetPrices200ResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:07:24.308887790Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:56:12.564909360Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class GetPrices200ResponseData {
   public static final String SERIALIZED_NAME_CRYPTO = "crypto";
   @SerializedName(SERIALIZED_NAME_CRYPTO)

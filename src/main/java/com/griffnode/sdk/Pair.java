@@ -13,7 +13,7 @@
 
 package com.griffnode.sdk;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:07:24.308887790Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:56:12.564909360Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class Pair {
     private String name = "";
     private String value = "";

@@ -50,7 +50,7 @@ import com.griffnode.sdk.JSON;
 /**
  * Recurring payment request event. schedule_id + your own reference identify the customer/order. The period&#39;s payment also fires the normal payment.* events. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:07:24.308887790Z[Etc/UTC]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-02T22:56:12.564909360Z[Etc/UTC]", comments = "Generator version: 7.10.0")
 public class RecurringWebhookPayload {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
