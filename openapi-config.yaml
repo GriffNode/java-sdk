@@ -12,4 +12,5 @@ developerOrganization: GriffNode
 developerOrganizationUrl: https://griffnode.com
 scmUrl: https://github.com/GriffNode/java-sdk
 scmConnection: scm:git:git@github.com:GriffNode/java-sdk.git
+licenseName: Apache-2.0
 licenseUrl: https://www.apache.org/licenses/LICENSE-2.0
