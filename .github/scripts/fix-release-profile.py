@@ -13,6 +13,12 @@ Exact string match on purpose: if openapi-generator's default block ever changes
 (version bump, template change), this fails loudly instead of silently doing nothing and
 leaving publish.yml broken again the way it was before — see the postmortem in
 docs/sdk/RELEASING.md.
+
+central-publishing-maven-plugin is pinned to 0.12.0, not latest-at-the-time: versions before
+0.12.0 bundle Maven 3.10's leftover staging metadata (maven-metadata-local.xml,
+_remote.repositories) into the upload, which Central's validator rejects with "Bundle has
+content that does NOT have a .pom file" — a real deploy failure we hit, not hypothetical.
+Don't downgrade without checking that bug is still fixed in whatever version you pick.
 """
 import pathlib
 import sys
@@ -65,7 +71,7 @@ NEW = """    <profiles>
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.7.0</version>
+                        <version>0.12.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
