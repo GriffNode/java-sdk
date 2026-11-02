@@ -18,6 +18,14 @@ jobs:
             generate -i /local/openapi.yaml -g java -o /local \
             --skip-validate-spec \
             -c /local/openapi-config.yaml
+      # openapi-generator's java template has no config option for custom Maven profiles/
+      # plugins, so the regenerated pom.xml always resets the release profile to the
+      # generator's own default (id "sign-artifacts", no deploy plugin) — this reapplies the
+      # real release profile (central-publishing-maven-plugin) every time. Exact string
+      # match on purpose: if the generator's default block ever changes shape, this should
+      # fail loudly instead of silently doing nothing.
+      - name: Fix pom.xml release profile
+        run: python3 .github/scripts/fix-release-profile.py
       - name: Commit regenerated SDK
         run: |
           git config user.name  "github-actions[bot]"
